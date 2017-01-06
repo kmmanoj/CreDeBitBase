@@ -14,6 +14,7 @@
 		<link rel="icon" href="res/images/icon.png"/>
 		<title>Action : CreDeBitBase</title>
 		<link rel="stylesheet" href="res/css/style.css"/>
+		<link rel="stylesheet" href="res/css/dynamism.css"/>
 	</head>
 	<body>
 		<script src="res/js/behave.js"></script>
@@ -50,8 +51,12 @@
 								<tr>
 									<td><label>Client</label></td>
 									<td>:</td>
-									<td><input type='text' name='client' id='clientinput' min=1 required/></td>
-									<td></td><td></td><td></td>
+									<td><input type='text' name='client' id='clientinput' min=1 /></td>
+									<td colspan='2'>
+										<img id='client-alert-image' class='alert-image' src='' alt=''/>
+										<p id='client-alert-message' class='alert-message'> Enter the name of the other dealer</p>
+									</td>
+									<td></td><td></td>
 								</tr>
 								<tr>
 									<td><label>Amount</label></td>
@@ -65,11 +70,10 @@
 									<td>:</td>
 									<td>
 										<select name='category' id='categoryinput'>
-											<option></option>
+											<option>Others</option>
 											<option>Entertainment</option>
 											<option>Food</option>
 											<option>Travel</option>
-											<option>Others...</option>
 										</select>
 									</td>
 									<td></td><td></td><td></td>
@@ -78,16 +82,27 @@
 									<td><label>Date</label></td>
 									<td>:</td>
 									<td><input type='date' name='date' id='dateinput' placeholder='yyyy/mm/dd' required/></td>
+									<td colspan='2'>
+										<img id='date-alert-image' class='alert-image' src='' alt=''/>
+										<p id='date-alert-message' class='alert-message'> Enter the date of transcation</p>
+									</td>
+									<td></td><td></td>
+								<tr id='extrafieldbutton'>
+									<td></td>
+									<td></td>
+									<td><input id='addmore' name='addmore' type='button' value='add field'/></td>
 									<td></td><td></td><td></td>
+								</tr>
 								<tr>
 									<td></td>
 									<td></td>
-									<td><input name='addbutton' type='submit' value='ADD'/></td>
+									<td><input id='addbutton' name='addbutton' type='submit' value='ADD'/></td>
 									<td></td><td></td><td></td>
 								</tr>
 							</table>
 							</center>
 						</form>
+						<script src='res/js/addDyn.js'></script>
 					";
 				}
 				else if($_GET['action']=='view'){
@@ -162,7 +177,7 @@
 								<tr>
 									<td><label>Transaction</label></td>
 									<td>:</td>
-									<td>
+									<td colspan='3'>
 										<select name='transaction' id='trninput'>
 						";
 						$transactions="SELECT * FROM ".$_SESSION['username'].";";
@@ -181,7 +196,7 @@
 						echo "
 										</select>
 									</td>
-									<td></td><td></td><td></td>
+									
 								</tr>
 								<tr>
 									<td></td>
