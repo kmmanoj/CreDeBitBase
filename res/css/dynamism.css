@@ -1,0 +1,11 @@
+.alert-image{
+	display: inline-block;
+	width: 4%;
+}
+.alert-message{
+	font-size: 13px;
+	padding-left: 10px;
+	display: inline-block;
+	text-align: left;
+	width: 75%;
+}
